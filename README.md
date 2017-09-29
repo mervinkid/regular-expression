@@ -1,30 +1,40 @@
 # Personal and common use regular expressions
-
 ***
-
-#### Match stdout code from java or groovy.
+### Java print method invoke
 ```
 (System.out.print)(ln)?(\()(( )*(")?([\w ])+(")?( )*)?(\))(;)*
 ```
-
 ***
-
-#### Match block comment.
+### Block comment
 ```
 (/\*)([\s\S]*?)(\*/)
 ```
-
 ***
-
-#### Match line comment.
+### Line comment
 ```
 (?<!(:))(//)( )*(\w|\W)*?(\n)
 ```
-
 ***
-
-#### Match part of java jar file name.
+### Version info of java jar file name
 This regular expression used to match the version and extion name of full jar file name.
 ```
 (-)((\d)|(\.))+((-|.)(\w)+)*.jar
+```
+***
+### XML
+#### XML tags with comments
+```
+((<)(!)?(((\w)+([ \n]+(\w|-)+(( )*(=)( )*("|')[\s\S]*?("|'))?)*)|(/(\w)+))( )*(/)?(>))|(<!--[\s\S\n]*?-->)
+```
+#### XML tags without comments
+```
+(<)(!)?(((\w)+([ \n]+(\w|-)+(( )*(=)( )*("|')[\s\S]*?("|'))?)*)|(/(\w)+))( )*(/)?(>)
+```
+#### XML comments
+```
+<!--[\s\S\n]*?-->
+```
+#### JS code block
+```
+(<script([ \n]+(\w|-)+( )*(=)( )*("|')[\s\S]*?("|'))*)( )*(>)[\s\S\n]*?(</script)( )*(>)
 ```
